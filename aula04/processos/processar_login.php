@@ -1,23 +1,33 @@
 <?php 
 session_start();
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = $_POST['email'];
-    $senha = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+    $senhaDigitada = $_POST['senha'];
 
+    $dados = json_decode(file_get_contents("../db/usuarios.json"), true);
 
-$dados = json_decode( file_get_contents("../db/usuarios.json"), true);
-
-
-
-foreach ($dados as $usuario) {
-    if ($usuario["email"] == $email && $usuario["senha"] == $senha) {
-        $_SESSION['email'] = $email;
-        $_SESSION['senha'] = $senha;
-        $_SESSION['nome'] = $usuario['nome'];
-        $_SESSION['valido'] = true;
-        header('Location: formulario.php');
-        exit;
+    foreach ($dados as $usuario) {
+        if ($usuario["email"] == $email) {
+            if (password_verify($senhaDigitada, $usuario["senha"])) {
+                // Senha correta
+                $_SESSION['email'] = $email;
+                $_SESSION['nome'] = $usuario['nome'];
+                $_SESSION['logado'] = true;
+                header('Location: ../formulario.php');
+                exit;
+            } else {
+                $_SESSION['logado'] = false;
+                $_SESSION['status'] = 'Senha incorreta';
+                exit;
+            }
+        }
     }
-}
+
+    $_SESSION['status'] = "Email não encontrado!";
+    exit;
+} else {
+    header('Location: ../login.php');
+    exit;
 }
 ?>

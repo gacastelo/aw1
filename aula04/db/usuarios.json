@@ -9,5 +9,11 @@
         "nome": "Gabriel",
         "email": "a@a.a",
         "senha": "$2y$10$37ZcfMSCIOtA\/KW3cqeU1u5h48oJ9zW28LQ59DJnIVM5rc6PSw1vm"
+    },
+    {
+        "id": 3,
+        "nome": "a",
+        "email": "a@b.a",
+        "senha": "$2y$10$nWBT4zEQDGD4Fap4NXaseO44pxeJd.na7ZI5WtGOPTkDOGTsStN42"
     }
 ]

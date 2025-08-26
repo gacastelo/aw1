@@ -21,7 +21,7 @@ $dados[] = $novoUsuario;
 
 file_put_contents("../db/usuarios.json", json_encode($dados, JSON_PRETTY_PRINT));
 
-header('Location: login.php');
+header('Location: ../login.php');
 exit;
 }
 ?>
