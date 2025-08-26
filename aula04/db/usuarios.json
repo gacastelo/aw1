@@ -1,0 +1,13 @@
+[
+    {
+        "nome": "Jo\u00e3o",
+        "email": "joao@example.com",
+        "senha": "$2y$10$Bwl2u1Yh9u3ox1BwhQj3UOyCl5bzqH3IJ2VElD86l3mb4rCd3nRuK"
+    },
+    {
+        "id": 2,
+        "nome": "Gabriel",
+        "email": "a@a.a",
+        "senha": "$2y$10$37ZcfMSCIOtA\/KW3cqeU1u5h48oJ9zW28LQ59DJnIVM5rc6PSw1vm"
+    }
+]
