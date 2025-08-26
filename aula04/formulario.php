@@ -48,7 +48,7 @@
         </style>
 </head>
 <body>
-    <form action="processamento.php" method="post">
+    <form action="processos/processamento.php" method="post">
         <h1>Formulário de Contato</h1>
         <label for="txt-nome">Nome</label>
         <input type="text" name="nome" id="nome" <?php if (isset($_POST['nome'])) echo $_POST['nome']; ?>>
