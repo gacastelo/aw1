@@ -2,8 +2,13 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (empty($_POST['email']) || empty($_POST['senha'])) {
+        $_SESSION['status'] = "Todos os campos devem ser preenchidos!";
+        exit;
+    }
     $email = $_POST['email'];
     $senhaDigitada = $_POST['senha'];
+
 
     $dados = json_decode(file_get_contents("../db/usuarios.json"), true);
 

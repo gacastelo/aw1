@@ -10,6 +10,14 @@ foreach ($dados as $usuario) {
     }
 }
 
+
+if (empty($_POST['nome']) || empty($_POST['email']) || empty($_POST['senha'])) {
+        echo "Todos os campos devem ser preenchidos!";
+        exit;
+}
+
+
+
 $novoUsuario = [
     'id' => count($dados) + 1,
     'nome' => $_POST['nome'],
