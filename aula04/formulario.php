@@ -1,3 +1,12 @@
+<?php 
+session_start();
+if (!$_SESSION['logado']) {
+    header('Location: login.php');
+    exit;
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -48,19 +57,17 @@
         </style>
 </head>
 <body>
-    <form action="processamento.php" method="post">
+    <form action="processos/processamento.php" method="post">
         <h1>Formulário de Contato</h1>
         <label for="txt-nome">Nome</label>
-        <input type="text" name="nome" id="nome" <?php if (isset($_POST['nome'])) echo $_POST['nome']; ?>>
+        <input type="text" name="nome" id="nome" value="<?php if (isset($_SESSION['nome'])) echo $_SESSION['nome']; ?>">
         <br>
         <label for="txt-email">E-mail</label>
-        <input type="email" name="email" id="txt-email" <?php if (isset($_POST['email'])) echo $_POST['email']; ?>>
+        <input type="email" name="email" id="txt-email" value="<?php if (isset($_SESSION['email'])) echo $_SESSION['email']; ?>">
         <br>
         <label for="txt-mensagem">Mensagem</label>
-        <textarea name="mensagem" id="txt-mensagem" cols="30" rows="10"></textarea>
+        <textarea name="mensagem" id="txt-mensagem" cols="30" rows="10" value="<?php if (isset($_SESSION['mensagem'])) echo $_SESSION['mensagem']; ?>"></textarea>
         <br>
-        <label for="txt-senha">Senha</label>
-        <input type="password" name="senha" id="txt-senha">
         
         <button type="submit">Enviar</button>
         <button type="reset">Limpar</button>

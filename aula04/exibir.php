@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!$_SESSION['sigma']) {
-    header('Location: formulario.php');
+if (!$_SESSION['logado']) {
+    header('Location: login.php');
     exit;
 }
 ?>
