@@ -15,6 +15,7 @@
         "nome": "a",
         "email": "a@b.a",
         "senha": "$2y$10$nWBT4zEQDGD4Fap4NXaseO44pxeJd.na7ZI5WtGOPTkDOGTsStN42"
+<<<<<<< HEAD
     },
     {
         "id": 4,
@@ -33,5 +34,7 @@
         "nome": "jkhtjyr",
         "email": "minegabre123@gmail.com",
         "senha": "$2y$10$tJdPInJQ7npp3C65G9UbveiiOwtdFpcQC2ZqjC9LzDJrSJzvrVpuS"
+=======
+>>>>>>> aa7f53ac28380df673373e24f794e43c5de7462e
     }
 ]
