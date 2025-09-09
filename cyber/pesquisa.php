@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -32,19 +36,19 @@
     <section id="formulario">
         <div class="container mt-5">
             <h2 class="text-center mb-4">Formulário Anônimo sobre Cyberbullying</h2>
-            <form>
+            <form action="resources/php/processar_pesquisa.php" method="post">
                 <div class="mb-3">
                     <label for="vitima" class="form-label">Você já foi vítima de cyberbullying?</label>
-                    <select class="form-select" id="vitima" required>
+                    <select class="form-select" id="vitima" name="vitima" required>
                         <option value="" disabled selected>Selecione uma opção</option>
                         <option value="sim">Sim</option>
                         <option value="nao">Não</option>
                     </select>
                 </div>
-                <div id="hide">
+                <div id="hide" class="hidden">
                     <div class="mb-3">
                         <label for="onde" class="form-label">Onde aconteceu o cyberbullying?</label>
-                        <select class="form-select" id="onde" required>
+                        <select class="form-select not-required" id="onde" name="onde" required>
                             <option value="" disabled selected>Selecione uma opção</option>
                             <option value="redes_sociais">Redes sociais (Instagram, Facebook, etc.)</option>
                             <option value="jogos_online">Jogos online (ex.: Fortnite, LOL)</option>
@@ -55,7 +59,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="tipo" class="form-label">Qual foi o tipo de agressão sofrida?</label>
-                        <select class="form-select" id="tipo" required>
+                        <select class="form-select not-required" id="tipo" name="tipo" required>
                             <option value="" disabled selected>Selecione uma opção</option>
                             <option value="ofensas">Ofensas públicas ou comentários maldosos</option>
                             <option value="exclusao">Exclusão de grupos ou redes sociais</option>
@@ -70,7 +74,7 @@
                     <div class="mb-3">
                         <label for="frequencia" class="form-label">Qual a frequência com que ocorreu o
                             cyberbullying?</label>
-                        <select class="form-select" id="frequencia" required>
+                        <select class="form-select not-required" id="frequencia" name="frequencia" required>
                             <option value="" disabled selected>Selecione uma opção</option>
                             <option value="diariamente">Diariamente</option>
                             <option value="semanalmente">Semanalmente</option>
@@ -83,38 +87,51 @@
                     <div class="mb-3">
                         <label for="sentimento" class="form-label">Como o cyberbullying fez você se sentir? (Marque
                             todas as opções que se aplicam)</label>
+
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="sentimento1" value="triste">
+                            <input class="form-check-input" type="checkbox" name="sentimento[]" id="sentimento1"
+                                value="triste">
                             <label class="form-check-label" for="sentimento1">Triste</label>
                         </div>
+
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="sentimento2" value="ansioso">
+                            <input class="form-check-input" type="checkbox" name="sentimento[]" id="sentimento2"
+                                value="ansioso">
                             <label class="form-check-label" for="sentimento2">Ansioso(a)</label>
                         </div>
+
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="sentimento3" value="com_raiva">
+                            <input class="form-check-input" type="checkbox" name="sentimento[]" id="sentimento3"
+                                value="com_raiva">
                             <label class="form-check-label" for="sentimento3">Com raiva</label>
                         </div>
+
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="sentimento4" value="inseguro">
+                            <input class="form-check-input" type="checkbox" name="sentimento[]" id="sentimento4"
+                                value="inseguro">
                             <label class="form-check-label" for="sentimento4">Inseguro(a)</label>
                         </div>
+
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="sentimento5" value="desesperancado">
+                            <input class="form-check-input" type="checkbox" name="sentimento[]" id="sentimento5"
+                                value="desesperancado">
                             <label class="form-check-label" for="sentimento5">Desesperançado(a)</label>
                         </div>
+
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="sentimento6" value="outro">
+                            <input class="form-check-input" type="checkbox" name="sentimento[]" id="sentimento6"
+                                value="outro">
                             <label class="form-check-label" for="sentimento6">Outro</label>
-                            <input type="text" class="form-control mt-2" id="sentimentoOther"
+                            <input type="text" class="form-control mt-2" name="sentimento_outro" id="sentimentoOutro"
                                 placeholder="Especifique...">
                         </div>
                     </div>
 
+
                     <div class="mb-3">
                         <label for="ajuda" class="form-label">Você procurou ajuda para lidar com o
                             cyberbullying?</label>
-                        <select class="form-select" id="ajuda" required>
+                        <select class="form-select not-required" id="ajuda" name="ajuda" required>
                             <option value="" disabled selected>Selecione uma opção</option>
                             <option value="sim">Sim</option>
                             <option value="nao">Não</option>
@@ -123,9 +140,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="support" class="form-label">Você se sentiu apoiado(a) por amigos, familiares ou
+                        <label for="suporte" class="form-label">Você se sentiu apoiado(a) por amigos, familiares ou
                             pessoas próximas?</label>
-                        <select class="form-select" id="support" required>
+                        <select class="form-select not-required" id="suporte" name="suporte" required>
                             <option value="" disabled selected>Selecione uma opção</option>
                             <option value="sim">Sim</option>
                             <option value="nao">Não</option>
@@ -135,9 +152,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="comments" class="form-label">Você tem alguma sugestão ou comentário sobre como melhorar
+                    <label for="comentarios" class="form-label">Você tem alguma sugestão ou comentário sobre como melhorar
                         a prevenção e o combate ao cyberbullying?</label>
-                    <textarea class="form-control" id="comments" rows="4"></textarea>
+                    <textarea class="form-control" id="comentarios" name="comentarios" rows="4"></textarea>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100">Enviar</button>
