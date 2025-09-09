@@ -6,11 +6,6 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit;
 }
 
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
-
-
 if ($_POST["vitima"] === "sim") {
 
     $sentimentos = isset($_POST['sentimento']) ? $_POST['sentimento'] : [];

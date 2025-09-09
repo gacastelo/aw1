@@ -16,7 +16,7 @@
     <title>Sobre Nós</title>
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.php">Cyberbullying</a>
@@ -27,12 +27,12 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.php">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre Nós</a></li>
-                    <li class="nav-item"><a href="pesquisa.php active" class="nav-link">Nosso Projeto</a></li>
+                    <li class="nav-item"><a class="nav-link active"  href="pesquisa.php">Nosso Projeto</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    <main class="flex-fill">
     <section id="formulario">
         <div class="container mt-5">
             <h2 class="text-center mb-4">Formulário Anônimo sobre Cyberbullying</h2>
@@ -157,17 +157,18 @@
                     <textarea class="form-control" id="comentarios" name="comentarios" rows="4"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100">Enviar</button>
+                <div style="text-align: center; width: 100%;"><button type="submit" class="btn btn-primary w-25">Enviar</button></div>
             </form>
         </div>
     </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Projeto Cyberbullying. Todos os direitos reservados.</p>
-            <p>Desenvolvido por Gabriel, Olavo e João Vitor</p>
-        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+      <div class="container">
+        <p>&copy; 2025 Projeto Cyberbullying. Todos os direitos reservados.</p>
+        <p>Desenvolvido por Gabriel, Olavo e João Vitor</p>
+      </div>
     </footer>
+  </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

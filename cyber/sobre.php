@@ -13,6 +13,7 @@
 </head>
 
 <body>
+<div class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="index.php">Cyberbullying</a>
@@ -29,36 +30,39 @@
         </div>
     </nav>
 
-    <section id="sobre" class="info-section">
-        <div class="container">
-            <h2 class="text-center mb-5">Sobre Nós</h2>
-            <div class="row">
-                <div class="col-md-4 text-center">
-                    <img src="https://placehold.co/300x400" alt="Imagem sobre" class="img-fluid">
-                    <h3 class="mt-3">Sigmazinho</h3>
-                    <h5 class="mt-1">2º Informática</h5>
-                    <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis ratione aliquam dicta adipisci ad tempore non blanditiis quia repellat consectetur cupiditate tenetur beatae impedit eligendi eveniet, repellendus eum at obcaecati.</p>
+    <main class="flex-fill">
+        <section id="sobre" class="info-section">
+            <div class="container">
+                <h2 class="text-center mb-5">Sobre Nós</h2>
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="https://placehold.co/300x400" alt="Imagem sobre" class="img-fluid">
+                        <h3 class="mt-3">Sigmazinho</h3>
+                        <h5 class="mt-1">2º Informática</h5>
+                        <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis ratione aliquam dicta adipisci ad tempore non blanditiis quia repellat consectetur cupiditate tenetur beatae impedit eligendi eveniet, repellendus eum at obcaecati.</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="https://placehold.co/300x400" alt="Imagem sobre" class="img-fluid">
+                        <h3 class="mt-3">Skibidi</h3>
+                        <h5 class="mt-1">2º Informática</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur molestias consequatur voluptates cum libero eligendi rerum nisi in deleniti nemo mollitia animi exercitationem corrupti doloribus similique, quisquam aliquid minus aspernatur!</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="https://placehold.co/300x400" alt="Imagem sobre" class="img-fluid">
+                        <h3 class="mt-3">Beta</h3>
+                        <h5 class="mt-1">2º Informática</h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur molestias consequatur voluptates cum libero eligendi rerum nisi in deleniti nemo mollitia animi exercitationem corrupti doloribus similique, quisquam aliquid minus aspernatur!</p>
+                    </div>
                 </div>
-                <div class="col-md-4 text-center">
-                    <img src="https://placehold.co/300x400" alt="Imagem sobre" class="img-fluid">
-                    <h3 class="mt-3">Skibidi</h3>
-                    <h5 class="mt-1">2º Informática</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur molestias consequatur voluptates cum libero eligendi rerum nisi in deleniti nemo mollitia animi exercitationem corrupti doloribus similique, quisquam aliquid minus aspernatur!</p>
-                </div>
-                <div class="col-md-4 text-center">
-                    <img src="https://placehold.co/300x400" alt="Imagem sobre" class="img-fluid">
-                    <h3 class="mt-3">Beta</h3>
-                    <h5 class="mt-1">2º Informática</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur molestias consequatur voluptates cum libero eligendi rerum nisi in deleniti nemo mollitia animi exercitationem corrupti doloribus similique, quisquam aliquid minus aspernatur!</p>
-                </div>
-            </div>
-    </section>
-    <footer>
+        </section>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
       <div class="container">
         <p>&copy; 2025 Projeto Cyberbullying. Todos os direitos reservados.</p>
         <p>Desenvolvido por Gabriel, Olavo e João Vitor</p>
       </div>
     </footer>
+  </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
