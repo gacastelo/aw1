@@ -6,6 +6,11 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit;
 }
 
+echo '<pre>';
+print_r($_POST);
+echo '</pre>';
+
+
 if ($_POST["vitima"] === "sim") {
 
     $sentimentos = isset($_POST['sentimento']) ? $_POST['sentimento'] : [];
@@ -25,30 +30,31 @@ if ($_POST["vitima"] === "sim") {
         'onde' => $_POST['onde'],
         'tipo' => $_POST['tipo'],
         'frequencia' => $_POST['frequencia'],
-        'sentimento' => $_POST['sentimento'],
+        'sentimento' => $_POST['sentimentos'],
         'ajuda' => $_POST['ajuda'],
-        'apoiado' => $_POST['apoiado'],
+        'suporte' => $_POST['suporte'],
+        'comentarios' => $_POST['comentarios'],
+        'horario' => date('d-m-Y H:i:s')
+    ];
+} else {
+    $nova_pesquisa = [
+        'id' => count($dados),
+        'vitima' => $_POST['vitima'],
+        'onde' => null,
+        'tipo' => null,
+        'frequencia' => null,
+        'sentimento' => null,
+        'ajuda' => null,
+        'suporte' => null,
         'comentarios' => $_POST['comentarios'],
         'horario' => date('d-m-Y H:i:s')
     ];
 }
-
-$nova_pesquisa = [
-    'id' => count($dados),
-    'vitima' => $_POST['vitima'],
-    'onde' => "null",
-    'tipo' => "null",
-    'frequencia' => "null",
-    'sentimento' => "null",
-    'ajuda' => "null",
-    'apoiado' => "null",
-    'comentarios' => $_POST['comentarios'],
-    'horario' => date('d-m-Y H:i:s')
-];
 
 $dados[] = $nova_pesquisa;
 
 file_put_contents("../db/db.json", json_encode($dados, JSON_PRETTY_PRINT));
 
 header("Location: ../../pesquisa.php");
-    exit;
+exit;
+?>

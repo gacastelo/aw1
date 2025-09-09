@@ -1,38 +1,14 @@
 [
     {
         "id": 0,
-        "vitima": "null",
-        "onde": "null",
-        "tipo": "null",
-        "frequencia": "null",
-        "sentimento": "null",
-        "ajuda": "null",
-        "apoiado": "null",
+        "vitima": null,
+        "onde": null,
+        "tipo": null,
+        "frequencia": null,
+        "sentimento": null,
+        "ajuda": null,
+        "apoiado": null,
         "sugestao": null,
         "horario": "09-09-2025 16:15:44"
-    },
-    {
-        "id": 1,
-        "vitima": "sim",
-        "onde": "null",
-        "tipo": "null",
-        "frequencia": "null",
-        "sentimento": "null",
-        "ajuda": "null",
-        "apoiado": "null",
-        "comentarios": "basjdbas",
-        "horario": "09-09-2025 16:20:08"
-    },
-    {
-        "id": 2,
-        "vitima": "sim",
-        "onde": "null",
-        "tipo": "null",
-        "frequencia": "null",
-        "sentimento": "null",
-        "ajuda": "null",
-        "apoiado": "null",
-        "comentarios": "asdasd",
-        "horario": "09-09-2025 16:21:24"
     }
 ]
