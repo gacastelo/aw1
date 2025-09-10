@@ -14,7 +14,7 @@ if ($_POST["vitima"] === "sim") {
         $outro = trim($_POST['sentimento_outro']);
 
         $sentimentos = array_filter($sentimentos, fn($sentimento) => $sentimento !== "outro");
-        $sentimentos[] = $outro;
+        $sentimentos[] = strtolower($outro);
     }
 
     $_POST["sentimentos"] = $sentimentos;
