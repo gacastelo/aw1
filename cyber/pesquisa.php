@@ -27,7 +27,7 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="index.php">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre Nós</a></li>
-                    <li class="nav-item"><a class="nav-link active"  href="pesquisa.php">Nosso Projeto</a></li>
+                    <li class="nav-item"><a class="nav-link active"  href="#">Nosso Projeto</a></li>
                 </ul>
             </div>
         </div>

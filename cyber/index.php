@@ -47,9 +47,12 @@
                 <h1 class="card-title text-center mb-4">Cyberbullying</h1>
                 <p class="card-text">
                   O cyberbullying é uma forma de agressão realizada por meio da internet, redes sociais, mensagens ou
-                  outras plataformas digitais. Diferente do bullying tradicional, o cyberbullying pode ocorrer a qualquer
-                  hora e atingir um grande número de pessoas rapidamente, causando grande sofrimento à vítima. Comentários
-                  ofensivos, divulgação de fotos sem permissão e criação de perfis falsos são alguns exemplos comuns dessa
+                  outras plataformas digitais. Diferente do bullying tradicional, o cyberbullying pode ocorrer a
+                  qualquer
+                  hora e atingir um grande número de pessoas rapidamente, causando grande sofrimento à vítima.
+                  Comentários
+                  ofensivos, divulgação de fotos sem permissão e criação de perfis falsos são alguns exemplos comuns
+                  dessa
                   prática. Muitas vezes, os agressores se escondem no anonimato da internet, o que dificulta a
                   identificação e a punição.
                 </p>
@@ -57,7 +60,8 @@
                   As consequências do cyberbullying podem ser graves, afetando a autoestima, a saúde mental e até a vida
                   escolar ou profissional da vítima. Em casos mais extremos, pode levar à depressão, ansiedade e até
                   pensamentos suicidas. Por isso, é essencial que as vítimas procurem apoio com familiares, amigos,
-                  professores ou profissionais especializados, além de denunciar o agressor nas plataformas digitais e, se
+                  professores ou profissionais especializados, além de denunciar o agressor nas plataformas digitais e,
+                  se
                   necessário, às autoridades. Combater o cyberbullying exige conscientização, empatia e responsabilidade
                   no uso das tecnologias.
                 </p>
@@ -84,7 +88,33 @@
         <div>
         </div>
     </section>
-    <section id="depoimentos" class="testemunho">
+    <section id="denuncie">
+      <div class="container">
+        <h2 class="text-center mb-5">Como denuncio cyberbullying?</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="text-center">
+              <h2 class="mb-3">Denuncie pela SaferNet</h2>
+              <img src="resources/images/safernet.png" alt="Denuncie cyberbullying pela SaferNet"
+                class="img-fluid mb-3">
+              <a href="http://safernet.org.br/" target="_blank"><button
+                  class="btn btn-primary btn-lg">Denuncie!</button></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="text-center">
+              <h2 class="mb-3">Denuncie pela Delegacia de São Paulo</h2>
+              <img src="resources/images/delega.png" alt="Denuncie cyberbullying pela Delegacia de São Paulo"
+                class="img-fluid mb-3">
+              <a href="https://www.delegaciaeletronica.policiacivil.sp.gov.br/ssp-de-cidadao/home"
+                target="_blank"><button class="btn btn-primary btn-lg">Denuncie!</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="testemunho mt-5  ">
       <div class="container">
         <h2 class="text-center mb-5">Depoimentos</h2>
         <div class="row">
@@ -103,36 +133,14 @@
         </div>
       </div>
     </section>
-    <section id="denuncie">
-      <div class="container">
-        <h2 class="text-center mb-5">Como denuncio cyberbullying?</h2>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="text-center">
-              <h2 class="mb-3">Denuncie pela SaferNet</h2>
-              <img src="resources/images/safernet.jpeg" alt="Denuncie cyberbullying pela SaferNet" class="img-fluid mb-3">
-              <button class="btn btn-primary btn-lg">Denuncie!</button>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="text-center">
-              <h2 class="mb-3">Denuncie pela Delegacia de São Paulo</h2>
-              <img src="resources/images/delega.png" alt="Denuncie cyberbullying pela Delegacia de São Paulo"
-                class="img-fluid mb-3">
-              <button class="btn btn-primary btn-lg">Denuncie!</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section>
       <div class="container">
         <div class="shadow-lg pt-5 pb-5 mt-5 mb-5">
           <h2 class="text-center">Ajude com nosso projeto</h2>
           <div class="row">
-              <div class="text-center">
-                <a href="pesquisa.php"><button class="btn btn-primary btn-lg w-50">Responder</button></a>
+            <div class="text-center">
+              <a href="pesquisa.php"><button class="btn btn-primary btn-lg w-50">Responder</button></a>
             </div>
           </div>
         </div>
@@ -141,18 +149,18 @@
   </main>
 
 
-    <footer class="bg-dark text-white text-center py-3">
-      <div class="container">
-        <p>&copy; 2025 Projeto Cyberbullying. Todos os direitos reservados.</p>
-        <p>Desenvolvido por Gabriel, Olavo e João Vitor</p>
-      </div>
-    </footer>
+  <footer class="bg-dark text-white text-center py-3">
+    <div class="container">
+      <p>&copy; 2025 Projeto Cyberbullying. Todos os direitos reservados.</p>
+      <p>Desenvolvido por Gabriel, Olavo e João Vitor</p>
+    </div>
+  </footer>
   </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"></script>
-    <script src="resources/js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <script src="resources/js/script.js"></script>
 </body>
 
 </html>
