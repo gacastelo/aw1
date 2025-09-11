@@ -36,19 +36,19 @@
                 <h2 class="text-center mb-5">Sobre Nós</h2>
                 <div class="row">
                     <div class="col-md-4 text-center">
-                        <img src="https://placehold.co/300x400" alt="Imagem sobre" class="img-fluid">
+                        <img src="resources\images\participantes\olavo.png" alt="Imagem sobre" class="img-fluid correct-img">
                         <h3 class="mt-3">Sigmazinho</h3>
                         <h5 class="mt-1">2º Informática</h5>
                         <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis ratione aliquam dicta adipisci ad tempore non blanditiis quia repellat consectetur cupiditate tenetur beatae impedit eligendi eveniet, repellendus eum at obcaecati.</p>
                     </div>
                     <div class="col-md-4 text-center">
-                        <img src="https://placehold.co/300x400" alt="Imagem sobre" class="img-fluid">
+                        <img src="resources\images\participantes\eu.jpg" alt="Imagem sobre" class="img-fluid correct-img">
                         <h3 class="mt-3">Skibidi</h3>
                         <h5 class="mt-1">2º Informática</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur molestias consequatur voluptates cum libero eligendi rerum nisi in deleniti nemo mollitia animi exercitationem corrupti doloribus similique, quisquam aliquid minus aspernatur!</p>
                     </div>
                     <div class="col-md-4 text-center">
-                        <img src="https://placehold.co/300x400" alt="Imagem sobre" class="img-fluid">
+                        <img src="resources\images\participantes\jv.png" alt="Imagem sobre" class="img-fluid correct-img">
                         <h3 class="mt-3">Beta</h3>
                         <h5 class="mt-1">2º Informática</h5>
                         <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur molestias consequatur voluptates cum libero eligendi rerum nisi in deleniti nemo mollitia animi exercitationem corrupti doloribus similique, quisquam aliquid minus aspernatur!</p>
