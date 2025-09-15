@@ -114,6 +114,34 @@
       </div>
     </section>
 
+    <section id="reportagem">
+      <div class="container mt-5 p-5 shadow">
+  <div class="row">
+    <div class="col-12">
+      <h2 class="mb-4 text-center">Reportagem real sobre bullying e cyberbullying</h2>
+      <p><strong>Guarujá (SP)</strong> — Um adolescente de 13 anos compartilhou os momentos difíceis que enfrentou ao ser vítima de bullying e cyberbullying na escola e nas redes sociais.</p>
+      
+      <p>"Eu postava fotos e me xingavam de gordo, bolo fofo, saco de areia, baleia, entre outras coisas", desabafou o garoto.</p>
+
+      <p>Além dos insultos presenciais, ele conta que os ataques continuavam online. "Basicamente em todas as fotos que eu colocava, alguém me xingava de feio nos comentários". Segundo o estudante, os xingamentos vinham de colegas da mesma sala e até de outras turmas.</p>
+
+      <p>A mãe do garoto tentou intervir, entrando em contato com os responsáveis de um dos agressores, mas "nada aconteceu". A situação só melhorou após a mudança de escola.</p>
+
+      <h5 class="mt-4">Palestras e conscientização</h5>
+      <p>Hoje, ele estuda na Escola Municipal Professora Dirce Valério Gracia, onde participou de palestras sobre bullying e cyberbullying. A iniciativa faz parte de um projeto da Prefeitura de Guarujá que já envolveu mais de 2.000 alunos do 7º ano.</p>
+
+      <p>De acordo com o secretário interino de Educação, Walter Fernandes Sório, o objetivo das ações é explicar o que são essas práticas, mostrar suas consequências e orientar os alunos sobre como agir.</p>
+
+      <blockquote class="blockquote mt-4 shadow p-2">
+        <p>“Me sinto bem em ver essas palestras, porque as pessoas precisam entender sobre isso. Elas acham que não é ofensa, que é só uma brincadeira, mas isso machuca muito.”</p>
+        <footer class="blockquote-footer text-white">Gabriel, estudante</footer>
+      </blockquote>
+    </div>
+    </div>
+  </div>
+</section>
+
+
     <section id="depoimentos" class="testemunho mt-5  ">
       <div class="container">
         <h2 class="text-center mb-5">Depoimentos</h2>
@@ -140,7 +168,7 @@
           <h2 class="text-center">Ajude com nosso projeto</h2>
           <div class="row">
             <div class="text-center">
-              <a href="pesquisa.php"><button class="btn btn-primary btn-lg w-50">Responder</button></a>
+              <a href="pesquisa.php"><button class="btn btn-primary btn-lg w-50">Responder Pesquisa <strong>Anônima</strong></button></a>
             </div>
           </div>
         </div>

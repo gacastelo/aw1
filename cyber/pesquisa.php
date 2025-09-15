@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +38,8 @@
             <h2 class="text-center mb-4">Formulário Anônimo sobre Cyberbullying</h2>
                 <div class="alert alert-info text-center mb-4" role="alert">
                     <strong>Atenção:</strong> Este formulário é totalmente <strong>anônimo</strong>.
-                    Nenhuma informação pessoal, como nome, e-mail, será coletada. 
-                    As respostas serão utilizadas apenas para fins de pesquisa e melhoria do projeto.
+                    Nenhuma informação pessoal, como nome, e-mail, será coletada. <br>
+                    As respostas não serão salvas em um arquivo, pois não são permitidos bancos de dados, é um projeto para fins unicamente educativos.
                 </div>
             <form action="resources/php/processar_pesquisa.php" method="post">
                 <div class="mb-3">
@@ -119,7 +119,7 @@
 
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="sentimento[]" id="sentimento5"
-                                value="desesperancado">
+                                value="desesperançado">
                             <label class="form-check-label" for="sentimento5">Desesperançado(a)</label>
                         </div>
 

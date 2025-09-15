@@ -1,4 +1,5 @@
 <?php
+session_start();
 date_default_timezone_set('America/Sao_Paulo');
 $dados = json_decode(file_get_contents('../db/db.json'), true);
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
@@ -20,7 +21,8 @@ if ($_POST["vitima"] === "sim") {
     $_POST["sentimentos"] = $sentimentos;
     
     $nova_pesquisa = [
-        'id' => count($dados),
+        #'id' => count($dados), tirei pq n to usando json
+        'id' => uniqid(),
         'vitima' => $_POST['vitima'],
         'onde' => $_POST['onde'],
         'tipo' => $_POST['tipo'],
@@ -33,7 +35,8 @@ if ($_POST["vitima"] === "sim") {
     ];
 } else {
     $nova_pesquisa = [
-        'id' => count($dados),
+        #'id' => count($dados),), tirei pq n to usando json
+        'id' => uniqid(),
         'vitima' => $_POST['vitima'],
         'onde' => null,
         'tipo' => null,
@@ -45,11 +48,14 @@ if ($_POST["vitima"] === "sim") {
         'horario' => date('d-m-Y H:i:s')
     ];
 }
+$pesquisas = isset($_SESSION["pesquisa"]) ? $_SESSION["pesquisa"] : [];
+$pesquisas[] = $nova_pesquisa;
+$_SESSION["pesquisa"] = $pesquisas;
 
 $dados[] = $nova_pesquisa;
-# Tirei pq não pode DB, então não sei se pode salvar os arquivos em json(q não é muito um DB)
+# Tirei pq não pode DB, então não sei se pode salvar os arquivos em json(q não é muito um DB), ai salvei na sessão pra ser sigma
 #file_put_contents("../db/db.json", json_encode($dados, JSON_PRETTY_PRINT));
 
-header("Location: ../../pesquisa.php");
+header("Location: ../../exibir.php");
 exit;
 ?>

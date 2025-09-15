@@ -1,5 +1,5 @@
 .capa {
-  background: url('https://abraceprogramaspreventivos.com.br/wp-content/uploads/2024/03/cyberbullying-dias-para-educadores-escola-bullying-e1597959582782.png.png') center center / cover no-repeat;
+  background: url('../images/capa.png') center center / cover no-repeat;
   color: white;
   padding: 100px 0;
   text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
@@ -41,4 +41,20 @@ body{
   width: 100%;
   height: 75%;
   object-fit: cover;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #e2e3e5;
+  color: #41464b;
+  padding: 0.2em 0.5em;
+  margin: 0.1em 0.2em;
+  border-radius: 0.25rem;
+  font-size: 0.85em;
+}
+
+.tag:hover {
+  background-color: #b9babb;
+  color: #41464b;
+  text-decoration: underline;
 }
