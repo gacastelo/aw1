@@ -47,8 +47,8 @@ if ($_POST["vitima"] === "sim") {
 }
 
 $dados[] = $nova_pesquisa;
-
-file_put_contents("../db/db.json", json_encode($dados, JSON_PRETTY_PRINT));
+# Tirei pq não pode DB, então não sei se pode salvar os arquivos em json(q não é muito um DB)
+#file_put_contents("../db/db.json", json_encode($dados, JSON_PRETTY_PRINT));
 
 header("Location: ../../pesquisa.php");
 exit;
