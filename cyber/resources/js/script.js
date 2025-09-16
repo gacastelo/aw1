@@ -12,3 +12,14 @@ vitima.addEventListener('change', function(){
         }
     }
 })
+
+function sigma(){
+    const nome = prompt("Area Restrita! Digite a senha para continuar:")
+    if (nome == 'sigma') {
+        location.href = 'exibir.php';
+    }
+}
+
+function segredo(){
+    location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+}
