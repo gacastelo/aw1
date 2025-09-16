@@ -28,6 +28,7 @@ session_start();
                     <li class="nav-item"><a class="nav-link" href="index.php">Início</a></li>
                     <li class="nav-item"><a class="nav-link" href="sobre.php">Sobre Nós</a></li>
                     <li class="nav-item"><a class="nav-link active"  href="#">Nosso Projeto</a></li>
+                    <div style="width: 10px; height: 10px; margin: auto; background-color: rgb(31, 34, 37);" onclick="sigma()"></div>
                 </ul>
             </div>
         </div>

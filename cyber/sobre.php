@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-md-4 text-center">
                         <img src="resources\images\participantes\eu.jpg" alt="Imagem sobre" class="img-fluid correct-img">
-                        <h3 class="mt-3">Gabriel C.</h3>
+                        <h3 class="mt-3"><span onclick="segredo()">Gabriel C.</span></h3>
                         <h5 class="mt-1">2º Informática</h5>
                         
                     </div>
