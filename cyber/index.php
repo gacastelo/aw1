@@ -66,6 +66,9 @@
                   no uso das tecnologias.
                 </p>
               </div>
+              <div>
+                
+              </div>
             </div>
           </div>
         </div>
@@ -134,9 +137,10 @@
 
       <blockquote class="blockquote mt-4 shadow p-2">
         <p>“Me sinto bem em ver essas palestras, porque as pessoas precisam entender sobre isso. Elas acham que não é ofensa, que é só uma brincadeira, mas isso machuca muito.”</p>
-        <footer class="blockquote-footer text-white">Gabriel, estudante</footer>
+        <footer class="blockquote-footer text-white">Gabriel, estudante da escola municipal Profª Dirce Valério Graci</footer>
       </blockquote>
     </div>
+    <div class="text-center"><a href="https://g1.globo.com/sp/santos-regiao/noticia/2022/06/11/estudante-xingado-de-gordo-e-bolo-fofo-compartilha-sofrimento-apos-ser-vitima-de-bullying-e-cyberbullying.ghtml" target="_blank"><button class="btn btn-primary btn-lg mt-3 w-25">Leia Sobre</button></a></div>
     </div>
   </div>
 </section>

@@ -7,6 +7,7 @@ vitima.addEventListener('change', function(){
         ocultar.classList.remove('hidden')
     } else {
         ocultar.classList.add('hidden')
+        verificador = false
         for (let i = 0; i < notRequired.length; i++) {
             notRequired[i].removeAttribute('required');
         }
@@ -23,3 +24,4 @@ function sigma(){
 function segredo(){
     location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
 }
+
