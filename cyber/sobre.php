@@ -39,13 +39,11 @@
                         <img src="resources\images\participantes\olavo.png" alt="Imagem sobre" class="img-fluid correct-img">
                         <h3 class="mt-3">Olavo</h3>
                         <h5 class="mt-1">2º Informática</h5>
-                        
                     </div>
                     <div class="col-md-4 text-center">
-                        <img src="resources\images\participantes\eu.jpg" alt="Imagem sobre" class="img-fluid correct-img">
-                        <h3 class="mt-3"><span onclick="segredo()">Gabriel C.</span></h3>
+                        <img onclick="segredo()" id="segredo" src="resources\images\participantes\eu3.jpg" alt="Imagem sobre" class="img-fluid correct-img">
+                        <h3 class="mt-3"><span onclick="segredo()" id="segredo">Gabriel "O Mago" Castelo</span></h3>
                         <h5 class="mt-1">2º Informática</h5>
-                        
                     </div>
                     <div class="col-md-4 text-center">
                         <img src="resources\images\participantes\jv.png" alt="Imagem sobre" class="img-fluid correct-img">
@@ -63,10 +61,9 @@
       </div>
     </footer>
   </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="resources/js/script.js"></script>
+         <script src="resources/js/script.js"></script>
 </body>
 </html>
