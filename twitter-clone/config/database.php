@@ -2,7 +2,7 @@
 $dbHost = 'localhost';
 $dbName = 'twitter_clone_db';
 $dbUser = 'root';
-$dbPass = '12345';
+$dbPass = '';
 
 try {
     $db = new PDO("mysql:host=$dbHost;dbname=$dbName;charset=utf8mb4", $dbUser, $dbPass);

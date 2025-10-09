@@ -13,8 +13,9 @@ abstract class AbstractController
     protected function render(string $viewPath, array $data = []): void
     {
         extract($data); 
-
-        require __DIR__ . "/../View/{$viewPath}.php";
+        $debug = __DIR__ . "../View/{$viewPath}.php";
+        echo "{$debug}";
+        require __DIR__ . "../View/{$viewPath}.php";
     }
 
 

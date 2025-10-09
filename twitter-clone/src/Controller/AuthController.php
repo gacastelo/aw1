@@ -3,7 +3,7 @@ class AuthController extends AbstractController
 {
     public function loginView()
     {
-        $this->render('login');
+        $this->render('auth/login');
     }
     public function handleLogin(): void
     {
@@ -43,7 +43,7 @@ class AuthController extends AbstractController
 
     public function registerView(): void
     {
-        $this->render('cadastro');
+        $this->render('auth/cadastro');
     }
 
     public function handleRegister(): void
@@ -51,8 +51,7 @@ class AuthController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $username = $_POST['username'] ?? '';
             $email = $_POST['email'] ?? '';
-            $password = $_POST['password'] ?? '';
-
+            $password = password_hash($_POST['password'], PASSWORD_DEFAULT); // Hash da senha;
             $userRepo = new UserRepository($this->db);
             $user = new User($username, $email, $password);
             if ($userRepo->save($user)) {

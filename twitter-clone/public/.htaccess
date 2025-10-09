@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /aw1/twitter-clone/public/
+
+    # Se o arquivo ou diretório existir, não redireciona
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+
+    # Senão, manda para index.php
+    RewriteRule ^ index.php [L,QSA]
+</IfModule>
