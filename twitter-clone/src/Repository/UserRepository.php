@@ -39,4 +39,22 @@ class UserRepository
             $data['id']
         );
     }
+
+    public function findById(int $id): ?User
+    {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE id = :id LIMIT 1");
+        $stmt->execute([':id' => $id]);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$data) {
+            return null;
+        }
+        
+        return new User(
+            $data['username'],
+            $data['email'],
+            $data['password_hash'], // O hash do DB
+            $data['id']
+        );
+    }
 }

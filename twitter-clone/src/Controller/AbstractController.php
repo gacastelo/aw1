@@ -13,9 +13,7 @@ abstract class AbstractController
     protected function render(string $viewPath, array $data = []): void
     {
         extract($data); 
-        $debug = __DIR__ . "../View/{$viewPath}.php";
-        echo "{$debug}";
-        require __DIR__ . "../View/{$viewPath}.php";
+        require __DIR__ . "/../View/{$viewPath}.php";
     }
 
 
@@ -31,5 +29,21 @@ abstract class AbstractController
     {
         header("Location: $path");
         exit();
+    }
+
+    public function isLoggedIn(): bool
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        return isset($_SESSION['user_id']);
+    }
+
+    public function getCurrentUserId(): ?int
+    {
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        return $_SESSION['user_id'] ?? null;
     }
 }
