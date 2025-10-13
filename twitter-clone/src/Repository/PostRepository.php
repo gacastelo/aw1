@@ -131,4 +131,36 @@ class PostRepository
         $stmt = $this->db->prepare("DELETE FROM posts WHERE id = :id");
         return $stmt->execute([':id' => $id]);
     }
+
+ public function getTimelinePosts(int $currentUserId, int $limit = 20, int $offset = 0): array
+    {
+        $sql = "
+            SELECT 
+                p.id AS post_id, p.content, p.created_at AS post_created_at, 
+                p.like_count, p.reply_count,
+                u.id AS user_id, u.username, u.bio
+            FROM 
+                posts p
+            JOIN 
+                users u ON p.user_id = u.id
+            LEFT JOIN 
+                follows f ON p.user_id = f.followed_id AND f.follower_id = :current_user_id
+            WHERE 
+                p.user_id = :current_user_id
+                OR f.follower_id IS NOT NULL
+            ORDER BY 
+                p.created_at DESC
+            LIMIT :limit OFFSET :offset
+        ";
+
+        $stmt = $this->db->prepare($sql);
+        
+        $stmt->bindValue(':current_user_id', $currentUserId, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        
+        $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

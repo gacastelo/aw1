@@ -21,12 +21,14 @@ class AuthController extends AbstractController
                     session_start();
                 }
                 $_SESSION['user_id'] = $user->__get('id');
+                $_SESSION['username'] = $user->__get('username');
+                $_SESSION['email'] = $user->__get('email');
                 $this->flash('success', 'Login realizado com sucesso!');
-                header('Location: /home');
+                header('Location: ./');
                 exit();
             } else {
                 $this->flash('error', 'Credenciais inválidas. Tente novamente.');
-                header('Location: /login');
+                header('Location: ./login');
                 exit();
             }
         }
@@ -58,14 +60,14 @@ class AuthController extends AbstractController
             $user = new User($username, $email, $password);
             if ($userRepo->save($user)) {
                 $this->flash('success', 'Cadastro realizado com sucesso! Por favor, faca o login.');
-                header('Location: /login');
+                header('Location: ./login');
                 exit();
             } else {
                 $this->flash('error', 'Erro ao cadastrar o usuário. Por favor, tente novamente.');
-                header('Location: /cadastro');
-                exit();
+                header('Location: ./cadastro');
+                exit(); 
             }
-        }
+        }   
     }
 }
 

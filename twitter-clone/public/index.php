@@ -1,4 +1,8 @@
 <?php
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();    
+}
+
 require_once __DIR__ . '/../config/database.php';
 
 $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -8,6 +12,7 @@ $basePath = '/aw1/twitter-clone/public'; // Ajustar conforme o caminho real do p
 $path = substr($requestUri, strlen($basePath));
 $path = trim($path, '/');
 
+$requestMethod = $_SERVER['REQUEST_METHOD'];
 
 // Inclusão dos Controllers
 //require_once __DIR__ . '/../src/Controller/AbstractController.php';
@@ -20,29 +25,51 @@ foreach (glob(__DIR__ . '/../src/Controller/*.php') as $filename) {
     require_once $filename;
 }
 
-
 switch ($path) {
     case '':
         if ($_SESSION['user_id'] ?? false) {
-            //$controller = new PostController($db);
-            //$controller->render('home');
-        } else {
+            $controller = new PostController($db);
+            $controller->homeView();
+        }
+        else {
             $controller = new AuthController($db);
             $controller->loginView();
         }
         break;
+    
+    // ... (rotas 'login' e 'cadastro' GET)
     case 'login':
         $controller = new AuthController($db);
-        $controller->loginView();
+        
+        // Se a requisição for POST, chama o método de processamento
+        if ($requestMethod === 'POST') {
+             // O AuthController precisa de um método para processar o POST de login
+             $controller->handleLogin(); 
+        } else {
+             // Se for GET, apenas exibe a view
+             $controller->loginView();
+        }
         break;
+
     case 'cadastro':
         $controller = new AuthController($db);
-        $controller->registerView();
+        
+        // NOVO BLOCO: Lida com o envio do formulário (método POST)
+        if ($requestMethod === 'POST') {
+            // 👈 Chamando o método do Controller que você deseja
+            $controller->handleRegister(); 
+            
+        } else {
+            // Se for GET, apenas exibe a view (o formulário)
+            $controller->registerView();
+        }
         break;
+        
     case 'trends':
         $controller = new TrendingController($db);
         $controller->topTrends();
         break;
+    case 'home':
 
     default:
         // Página não encontrada
@@ -50,5 +77,4 @@ switch ($path) {
         echo "404 - Página Não Encontrada";
         break;
 }
-
 ?>

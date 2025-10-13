@@ -80,4 +80,18 @@ class PostController extends AbstractController
     $hashtags = array_unique($matches[1] ?? []);
     return $hashtags; 
 }
+
+    public function homeView(): void
+    {
+        if (!$this->isLoggedIn()) {
+            $this->flash('error', 'Você precisa estar logado para ver o feed.');
+            $this->redirect('/login');
+            return;
+        }
+
+        $postRepository = new PostRepository($this->db);
+         $posts = $postRepository->getTimelinePosts($this->getCurrentUserId());
+
+        $this->render('home', ['posts' => $posts]);
+    }
 }

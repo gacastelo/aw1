@@ -8,5 +8,10 @@
 </head>
 <body>
     <h1>Home</h1>
+    <?php
+    echo $_SESSION['user_id'] .' <br>';
+    echo $_SESSION['username'].' <br>';
+    echo $_SESSION['email'];
+    ?>
 </body>
 </html>
