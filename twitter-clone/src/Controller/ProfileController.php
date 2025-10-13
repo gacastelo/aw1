@@ -1,5 +1,8 @@
 <?php
-
+include_once __DIR__ . '/../Model/User.php';
+include_once __DIR__ . '/../Repository/UserRepository.php';
+include_once __DIR__ . '/../Repository/PostRepository.php';
+include_once __DIR__ . '/../Repository/FollowRepository.php';
 class ProfileController extends AbstractController
 {
     public function show(int $userId): void

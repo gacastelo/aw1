@@ -1,4 +1,7 @@
 <?php 
+include_once __DIR__ . '/../Model/Post.php';
+include_once __DIR__ . '/../Repository/PostRepository.php';
+include_once __DIR__ . '/../Controller/TrendingController.php';
 class PostController extends AbstractController
 {
     public function store()
@@ -18,12 +21,14 @@ class PostController extends AbstractController
 
         try {
             $post = new Post($userId, $content, $replyToId);
-            
-
             $postRepository = new PostRepository($this->db);
             $postRepository->save($post);
             
             $this->flash('success', $post->isReply() ? 'Resposta publicada!' : 'Post criado com sucesso!');
+
+            $trendingController = new TrendingController($this->db);
+            $hashtags = $this->extractHashtags($content);
+            $trendingController->addTrend($hashtags);
             
         } catch (InvalidArgumentException $e) {
             $this->flash('error', $e->getMessage());
@@ -67,4 +72,12 @@ class PostController extends AbstractController
             'replies' => $replies
         ]);
     }
+
+    public function extractHashtags(string $content): array
+{
+    $regex = '/#([a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)/u';
+    preg_match_all($regex, $content, $matches);
+    $hashtags = array_unique($matches[1] ?? []);
+    return $hashtags; 
+}
 }

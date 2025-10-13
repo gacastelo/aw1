@@ -10,9 +10,16 @@ $path = trim($path, '/');
 
 
 // Inclusão dos Controllers
-require_once __DIR__ . '/../src/Controller/AbstractController.php';
-require_once __DIR__ . '/../src/Controller/PostController.php';
-require_once __DIR__ . '/../src/Controller/AuthController.php';
+//require_once __DIR__ . '/../src/Controller/AbstractController.php';
+//require_once __DIR__ . '/../src/Controller/PostController.php';
+//require_once __DIR__ . '/../src/Controller/AuthController.php';
+//require_once __DIR__ . '/../src/Controller/ProfileController.php';
+//require_once __DIR__ . '/../src/Controller/TrendingController.php';
+
+foreach (glob(__DIR__ . '/../src/Controller/*.php') as $filename) {
+    require_once $filename;
+}
+
 
 switch ($path) {
     case '':
@@ -32,7 +39,10 @@ switch ($path) {
         $controller = new AuthController($db);
         $controller->registerView();
         break;
-
+    case 'trends':
+        $controller = new TrendingController($db);
+        $controller->topTrends();
+        break;
 
     default:
         // Página não encontrada

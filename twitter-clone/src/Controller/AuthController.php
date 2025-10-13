@@ -1,4 +1,6 @@
 <?php 
+include_once __DIR__ . '/../Model/User.php';
+include_once __DIR__ . '/../Repository/UserRepository.php';
 class AuthController extends AbstractController
 {
     public function loginView()
