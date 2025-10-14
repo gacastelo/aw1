@@ -26,7 +26,6 @@ class TrendingRepository
         $trendings = [];
         foreach ($data as $row) {
             $trendings[] = new Trending(
-                $row['id'],
                 $row['hashtag'],
                 $row['posts_count']
             );
@@ -47,7 +46,7 @@ class TrendingRepository
         return $stmt->execute([':hashtag' => $hashtag]);
     }
 
-    public function findByHashtag(string $hashtag): ?Trending
+    public function findAllByHashtag(string $hashtag): ?Trending
     {
         $stmt = $this->db->prepare("SELECT * FROM trendings WHERE hashtag = :hashtag LIMIT 1");
         $stmt->execute([':hashtag' => $hashtag]);
@@ -58,15 +57,24 @@ class TrendingRepository
         }
         
         return new Trending(
-            $data['id'],
             $data['hashtag'],
-            $data['posts_count']
+            $data['posts_count'],
         );
     }
-
+    
     public function getAllHashtags(): array
     {
         $stmt = $this->db->query("SELECT hashtag FROM trendings");
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return array_column($data, 'hashtag');
+    }
+
+    public function getTopHashtags(int $limit = 10): array
+    {
+        $stmt = $this->db->prepare("SELECT hashtag FROM trendings ORDER BY posts_count DESC LIMIT :limit");
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         return array_column($data, 'hashtag');

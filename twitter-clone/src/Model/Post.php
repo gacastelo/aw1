@@ -11,6 +11,8 @@ class Post
     private int $replyCount;
     private DateTime $createdAt;
 
+    private array $hashtags;
+
     public function __construct(
         int $userId,
         string $content,
@@ -18,7 +20,8 @@ class Post
         ?int $id = null,
         int $likeCount = 0,
         int $replyCount = 0,
-        ?DateTime $createdAt = null
+        ?DateTime $createdAt = null,
+        ?array $hashtags = []
     ) {
         // 1. Regra de Validação: O Model garante o limite de 1 a 280 caracteres
         $trimmedContent = trim($content);
@@ -34,6 +37,7 @@ class Post
         $this->replyCount = $replyCount;
         // Se for um Post novo, define a data de criação agora
         $this->createdAt = $createdAt ?? new DateTime(); 
+        $this->hashtags = $hashtags ?? $this->extractHashtags($content);
     }
 
      public function __get($atribute) {
@@ -66,5 +70,12 @@ class Post
         if ($this->replyCount > 0) {
             $this->replyCount--;
         }
+    }
+    public function extractHashtags(string $content): array
+    {
+        $regex = '/#([a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)/u';
+        preg_match_all($regex, $content, $matches);
+        $hashtags = array_unique($matches[1] ?? []);
+        return $hashtags; 
     }
 }

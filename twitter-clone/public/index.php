@@ -64,15 +64,37 @@ switch ($path) {
             $controller->registerView();
         }
         break;
-        
+    
     case 'trends':
+        
+        $hashtag = $_GET['hashtag'] ?? null;
+        if ($hashtag) {
+            $controller = new PostController($db);
+            $controller->viewTrend($hashtag);
+            break;
+        }
         $controller = new TrendingController($db);
         $controller->topTrends();
         break;
     case 'home':
+        $controller = new PostController($db);
+        $controller->homeView();
+        break;
 
+    case 'post':
+        $controller = new PostController($db);
+        if ($requestMethod === 'POST') {
+            $controller->store();
+        } else {
+            http_response_code(405);
+            echo "Método Não Permitido";
+        }
+        break;
+    case 'logout':
+        $controller = new AuthController($db);
+        $controller->logout();
+        break;
     default:
-        // Página não encontrada
         http_response_code(404);
         echo "404 - Página Não Encontrada";
         break;

@@ -3,11 +3,19 @@ include_once __DIR__ . '/../Model/Trending.php';
 include_once __DIR__ . '/../Repository/TrendingRepository.php';
 class TrendingController extends AbstractController
 {
+
     public function topTrends(): void
     {
         $trendingRepo = new TrendingRepository($this->db);
         $trendings = $trendingRepo->findAll();
         $this->render('trending/list', ['trendings' => $trendings]);
+    }
+
+    public function viewTrend($hashtag)
+    {
+        $trendingRepo = new TrendingRepository($this->db);
+        $trending = $trendingRepo->findAllByHashtag($hashtag);
+        $this->render('trending/trend', ['trending' => $trending, 'hashtag' => $hashtag]);
     }
 
     public function addTrend($hashtags)

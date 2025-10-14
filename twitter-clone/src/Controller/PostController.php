@@ -9,7 +9,7 @@ class PostController extends AbstractController
 
         if (!$this->isLoggedIn()) {
             $this->flash('error', 'Você precisa estar logado para postar.');
-            $this->redirect('/login');
+            $this->redirect('./login');
             return;
         }
 
@@ -38,7 +38,7 @@ class PostController extends AbstractController
             $this->flash('error', 'Ocorreu um erro interno ao publicar.');
         }
 
-        $this->redirect($replyToId ? "/post/{$replyToId}" : '/home');
+        $this->redirect($replyToId ? "./post/{$replyToId}" : './home');
     }
 
     public function showProfilePosts(int $user_id): void
@@ -81,17 +81,30 @@ class PostController extends AbstractController
     return $hashtags; 
 }
 
+
+    public function viewTrend($hashtag)
+    {
+        $postRepository = new PostRepository($this->db);
+        $posts = $postRepository->findAllPostsByHashtag($hashtag);
+        
+        $this->render('trending/trend', [
+            'hashtag' => $hashtag,
+            'posts' => $posts
+        ]);
+    }
+
     public function homeView(): void
     {
         if (!$this->isLoggedIn()) {
             $this->flash('error', 'Você precisa estar logado para ver o feed.');
-            $this->redirect('/login');
+            $this->redirect('./login');
             return;
         }
-
         $postRepository = new PostRepository($this->db);
-         $posts = $postRepository->getTimelinePosts($this->getCurrentUserId());
+        $posts = $postRepository->getTimelinePosts($this->getCurrentUserId());
 
-        $this->render('home', ['posts' => $posts]);
+        $trendingRepository = new TrendingRepository($this->db);
+        $trendingHashtags = $trendingRepository->getTopHashtags();
+        $this->render('home', ['posts' => $posts, 'trendingHashtags' => $trendingHashtags]);
     }
 }

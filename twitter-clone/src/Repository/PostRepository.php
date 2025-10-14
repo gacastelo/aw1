@@ -12,8 +12,8 @@ class PostRepository
 
     public function save(Post $post): bool
     {
-        $sql = "INSERT INTO posts (user_id, content, reply_to_id) 
-                VALUES (:user_id, :content, :reply_to_id)";
+        $sql = "INSERT INTO posts (user_id, content, reply_to_id, hashtags) 
+                VALUES (:user_id, :content, :reply_to_id, :hashtags)";
 
         $stmt = $this->db->prepare($sql);
         
@@ -22,7 +22,8 @@ class PostRepository
             ':content' => $post->__get('content'),
             
             // Passa NULL se não for uma resposta a um post
-            ':reply_to_id' => $post->__get('replyToId') 
+            ':reply_to_id' => $post->__get('replyToId'),
+            ':hashtags' => json_encode($post->extractHashtags($post->__get('content')) ?? [])
         ]);
 
         if ($result && $post->isReply()) {
@@ -98,6 +99,29 @@ class PostRepository
             );
         }
         return $replies;
+    }
+
+    public function findAllPostsByHashtag(string $hashtag): array
+    {
+        $stmt = $this->db->prepare("SELECT * FROM posts WHERE JSON_CONTAINS(hashtags, :hashtag_json) ORDER BY created_at DESC");
+        $hashtag_json = json_encode($hashtag);
+        $stmt->execute([':hashtag_json' => $hashtag_json]);
+        $postsData = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $posts = [];
+        foreach ($postsData as $data) {
+            $posts[] = new Post(
+                $data['user_id'],
+                $data['content'],
+                $data['reply_to_id'],
+                $data['id'],
+                $data['like_count'],
+                $data['reply_count'],
+                new DateTime($data['created_at']),
+                json_decode($data['hashtags'], true) ?? []
+            );
+        }
+        return $posts;
     }
     
     // Método auxiliar (Privado) para o save()
