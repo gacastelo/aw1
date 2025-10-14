@@ -90,6 +90,15 @@ switch ($path) {
             echo "Método Não Permitido";
         }
         break;
+    case 'profile':
+        $controller = new ProfileController($db);
+        $username = $_GET['username'] ?? null;
+        if ($username) {
+            $controller->show($username);
+        } else {
+            echo "Usuário não especificado.";
+        }
+        break;
     case 'logout':
         $controller = new AuthController($db);
         $controller->logout();

@@ -5,40 +5,32 @@ include_once __DIR__ . '/../Repository/PostRepository.php';
 include_once __DIR__ . '/../Repository/FollowRepository.php';
 class ProfileController extends AbstractController
 {
-    public function show(int $userId): void
+    public function show(string $username): void
     {
         $userRepo = new UserRepository($this->db);
         $postRepo = new PostRepository($this->db);
         $followRepo = new FollowRepository($this->db);
-
-        $profileUser = $userRepo->findById($userId);
-
+        $profileUser = $userRepo->findByUsername($username);
         if (!$profileUser) {
             http_response_code(404);
-            $this->render('404');
+            echo "Usuário não encontrado.";
             return;
         }
-
+        $userId = $profileUser->__get('id');
         $posts = $postRepo->findAllByUserId($userId);
-        
         $followerCount = $followRepo->getFollowersCount($userId);
         $followingCount = $followRepo->getFollowingCount($userId);
-        
-        $isFollowing = false;
-
-        $currentUserId = $this->getCurrentUserId(); // Esse helper pega $_SESSION['user_id']
-        
+        $isFollowing = $followRepo->isFollowing($this->getCurrentUserId(), $userId);
+        $currentUserId = $this->getCurrentUserId();
         if ($this->isLoggedIn() && $currentUserId !== $userId) {
             $isFollowing = $followRepo->isFollowing($currentUserId, $userId);
         }
-
         $this->render('profile', [
             'profileUser' => $profileUser,
             'posts' => $posts,
             'followerCount' => $followerCount,
             'followingCount' => $followingCount,
-            'isFollowing' => $isFollowing,
-            'isOwner' => $this->isLoggedIn() && $currentUserId === $userId,
+            'isFollowing' => $isFollowing
         ]);
     }
 

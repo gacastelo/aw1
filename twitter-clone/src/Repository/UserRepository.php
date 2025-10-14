@@ -57,4 +57,22 @@ class UserRepository
             $data['id']
         );
     }
+
+    public function findByUsername(string $username)
+    {
+        $stmt = $this->db->prepare("SELECT * FROM users WHERE username = :username LIMIT 1");
+        $stmt->execute([':username' => $username]);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$data) {
+            return null;
+        }
+        
+        return new User(
+            $data['username'],
+            $data['email'],
+            "", // Tirei o hash pq não é necessário aqui
+            $data['id']
+        );
+    }
 }

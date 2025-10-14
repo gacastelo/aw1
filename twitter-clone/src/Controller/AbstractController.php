@@ -46,4 +46,15 @@ abstract class AbstractController
         }
         return $_SESSION['user_id'] ?? null;
     }
+
+    public function getCurrentUser(): ?User
+    {
+        if (!$this->isLoggedIn()) {
+            return null;
+        }
+
+        $userId = $this->getCurrentUserId();
+        $userRepo = new UserRepository($this->db);
+        return $userRepo->findById($userId);
+    }
 }
