@@ -18,7 +18,7 @@
             <p>Seguidores: <?= $followerCount ?> | Seguindo: <?= $followingCount ?></p>
 
             <?php if (isset($isFollowing)): ?>
-                <form method="POST" action="/aw1/twitter-clone/public/follow">
+                <form method="POST" action="./<?= $isFollowing ? 'unfollow' : 'follow' ?>?followedId=<?= $profileUser->__get('id') ?>">
                     <input type="hidden" name="user_id" value="<?= $profileUser->__get('id') ?>">
                     <button type="submit" class="follow-btn <?= $isFollowing ? 'unfollow' : '' ?>">
                         <?= $isFollowing ? 'Deixar de seguir' : 'Seguir' ?>

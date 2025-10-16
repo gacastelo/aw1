@@ -103,6 +103,33 @@ switch ($path) {
         $controller = new AuthController($db);
         $controller->logout();
         break;
+    case 'follow':
+        $controller = new ProfileController($db);
+        $followedId = $_GET['followedId'] ?? null;
+        if ($followedId) {
+            $controller->followUser($followedId);
+        } else {
+            echo "Usuário nao especificado.";
+        }
+        break;
+    case 'unfollow':
+        $controller = new ProfileController($db);
+        $followedId = $_GET['followedId'] ?? null;
+        if ($followedId) {
+            $controller->unfollowUser($followedId);
+        } else {
+            echo "Usuário nao especificado.";
+        }
+        break;
+    case 'like':
+        $controller = new LikeController($db);
+        $postId = $_GET['postId'] ?? null;
+        if ($postId) {
+            $controller->togglelikePost($postId);
+        } else {
+            echo "Post não especificado.";
+        }
+        break;
     default:
         http_response_code(404);
         echo "404 - Página Não Encontrada";

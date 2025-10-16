@@ -41,7 +41,7 @@
                     <div class="post-card">
 
                         <div class="post-header">
-                            <strong><a href="/profile?username=<?php echo htmlspecialchars($post['username']); ?>">
+                            <strong><a href="./profile?username=<?php echo htmlspecialchars($post['username']); ?>">
                                     @<?php echo htmlspecialchars($post['username']); ?>
                                 </a></strong>
                             <span class="timestamp">
@@ -54,7 +54,15 @@
                         </p>
 
                         <div class="post-footer">
-                            <span>❤️ <?php echo $post['like_count']; ?></span>
+                            <form action="./like?postId=<?php echo $post['post_id']; ?>" method="POST" class="like-form"
+                                data-post-id="<?php echo $post['post_id']; ?>">
+                                <button type="submit">
+                                        🖤
+                                    <span class="like-count" data-post-id="<?php echo $post['post_id']; ?>">
+                                        <?php echo $post['like_count']; ?>
+                                    </span>
+                                </button>
+                            </form>
                             <span>💬 <?php echo $post['reply_count']; ?></span>
                         </div>
                     </div>
@@ -80,6 +88,7 @@
     </div>
 
     <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/like.js"></script>
 </body>
 
 </html>

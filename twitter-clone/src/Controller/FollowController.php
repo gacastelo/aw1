@@ -5,7 +5,7 @@ class FollowController extends AbstractController
     {
         if (!$this->isLoggedIn()) {
             $this->flash('error', 'Você precisa estar logado para seguir usuários.');
-            $this->redirect('/login');
+            $this->redirect('./login');
             return;
         }
         $currentUserId = $this->getCurrentUserId();
@@ -20,7 +20,7 @@ class FollowController extends AbstractController
     {
         if (!$this->isLoggedIn()) {
             $this->flash('error', 'Você precisa estar logado para deixar de seguir usuários.');
-            $this->redirect('/login');
+            $this->redirect('./login');
             return;
         }
         $currentUserId = $this->getCurrentUserId();
@@ -36,7 +36,7 @@ class FollowController extends AbstractController
     {
         if (!$this->isLoggedIn()) {
             $this->flash('error', 'Você precisa estar logado para ver seguidores.');
-            $this->redirect('/login');
+            $this->redirect('./login');
             return;
         }
         $followRepository = new FollowRepository($this->db);
@@ -48,7 +48,7 @@ class FollowController extends AbstractController
     {
         if (!$this->isLoggedIn()) {
             $this->flash('error', 'Você precisa estar logado para ver quem está seguindo.');
-            $this->redirect('/login');
+            $this->redirect('./login');
             return;
         }
         $followRepository = new FollowRepository($this->db);

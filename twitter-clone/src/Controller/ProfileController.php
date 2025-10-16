@@ -38,15 +38,15 @@ class ProfileController extends AbstractController
     {
         if (!$this->isLoggedIn()) {
             $this->flash('error', 'Você precisa estar logado para seguir.');
-            $this->redirect('/login');
+            $this->redirect('./login');
             return;
         }
 
         $currentUserId = $this->getCurrentUserId();
-        
+        $followedUsername = (new UserRepository($this->db))->findById($followedId)?->__get('username');
         if ($currentUserId === $followedId) {
             $this->flash('error', 'Você não pode seguir a si mesmo.');
-            $this->redirect("/profile/{$followedId}");
+            $this->redirect("./profile?username={$followedUsername}");
             return;
         }
 
@@ -60,18 +60,19 @@ class ProfileController extends AbstractController
              $this->flash('info', 'Você já segue este usuário.'); 
         }
 
-        $this->redirect("/profile/{$followedId}");
+        $this->redirect("./profile?username={$followedUsername}");
     }
 
     public function unfollowUser(int $followedId)
     {
         if (!$this->isLoggedIn()) {
             $this->flash('error', 'Você precisa estar logado.');
-            $this->redirect('/login');
+            $this->redirect('./login');
             return;
         }
 
         $currentUserId = $this->getCurrentUserId();
+        $followedUsername = (new UserRepository($this->db))->findById($followedId)?->__get('username');
         $followRepo = new FollowRepository($this->db);
         
         $success = $followRepo->unfollow($currentUserId, $followedId);
@@ -82,6 +83,6 @@ class ProfileController extends AbstractController
             $this->flash('error', 'Erro ao processar a solicitação.');
         }
 
-        $this->redirect("/profile/{$followedId}");
+        $this->redirect("./profile?username={$followedUsername}");
     }
 }
