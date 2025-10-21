@@ -19,6 +19,7 @@ if (!isset($_SESSION['user'])) {
 </head>
 <body>
     <a href="../processos/logout_processo.php">Logout</a>
+    <a href="user.php?user=<?php echo urlencode($_SESSION['user']->username); ?>">Perfil</a>
     <h1>Homepage</h1>
     <?php
     echo "<p>Bem vindo, " . htmlspecialchars($_SESSION['user']->username) . "!</p>";
