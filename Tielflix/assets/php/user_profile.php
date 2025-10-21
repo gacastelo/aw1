@@ -20,9 +20,10 @@
             echo "<p>Este usuário ainda não adicionou filmes.</p>";
         }
         foreach ($user->filmes as $filme) : 
+            $modalId = 'movieModal-' . str_replace(' ', '-', strtolower($filme->titulo));
         ?>
             <div class="movie-card">
-                <img src="<?= htmlspecialchars($filme->link_imagem) ?>" alt="<?= htmlspecialchars($filme->titulo) ?> - <?= htmlspecialchars($filme->ano) ?> poster"/>
+                <img onclick="openFilmeModal('<?php echo $modalId; ?>')" src="<?= htmlspecialchars($filme->link_imagem) ?>" alt="<?= htmlspecialchars($filme->titulo) ?> - <?= htmlspecialchars($filme->ano) ?> poster"/>
                 
                 <p class="movie-title"><?= htmlspecialchars($filme->titulo) ?>, <?= htmlspecialchars($filme->ano) ?></p>
                 <p class="movie-director">Direção: <?= htmlspecialchars($filme->diretor) ?></p>
@@ -36,9 +37,17 @@
                 ?>
                 </p>
             </div>
-
+            
         <?php 
+            $filme->view();
         endforeach; 
         ?>
     </div>
 </div>
+
+<script>
+    function openFilmeModal(modalId) {
+        const modal = new bootstrap.Modal(document.getElementById(modalId));
+        modal.show();
+    }
+</script>

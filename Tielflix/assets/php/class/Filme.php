@@ -62,5 +62,11 @@ class Filme
         ];
     }
 
+    public function view()
+    {
+        extract($this->toArray());
+        require 'C:\xampp\htdocs\aw1\Tielflix\assets\php\viewFilmeModal.php';
+    }
+
 }
 ?>
