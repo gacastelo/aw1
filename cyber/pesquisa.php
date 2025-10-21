@@ -52,6 +52,8 @@ session_start();
                     </select>
                 </div>
                 <div id="hide" class="hidden">
+                <div class="alert alert-warning"><p>Sentir-se ferido(a) por causa do cyberbullying não é culpa sua. Você é muito mais forte do que imagina, e o fato de reconhecer e falar sobre isso já demonstra coragem. Não deixe que as atitudes negativas de outras pessoas definam quem você é. Você merece respeito, apoio e cuidado. Procure pessoas de confiança, amigos, familiares ou profissionais para conversar — você não está sozinho(a) nessa jornada. Cada dia é uma nova oportunidade para se reconstruir, se fortalecer e descobrir que seu valor é imenso.</p></div>
+                
                     <div class="mb-3">
                         <label for="onde" class="form-label">Onde aconteceu o cyberbullying?</label>
                         <select class="form-select not-required" id="onde" name="onde" required>
@@ -175,8 +177,7 @@ session_start();
       </div>
     </footer>
   </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="resources/js/script.js"></script>

@@ -58,3 +58,6 @@ body{
   color: #41464b;
   text-decoration: underline;
 }
+#segredo:hover {
+  cursor:pointer;
+}
