@@ -8,8 +8,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $password = $_POST['password'];
 
-    $_SESSION['users'][$username] = new User($username, $email, $password);
-    header('Location: ../public/login.php');
-    exit();
+    if (!empty($username) && !empty($email) && !empty($password) && filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($password)>= 8) {
+        $_SESSION['users'][$username] = new User($username, $email, $password);
+        header('Location: ../public/login.php');
+        exit();
+    }
+    $_SESSION['error'] = 'Por favor, preencha todos os campos corretamente.';
+    header('Location: ../public/cadastro.php');
 }
 ?>

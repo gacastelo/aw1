@@ -12,11 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user'] = $user;
             header('Location: ../public/index.php');
             exit();
-        } else {
-            echo "Senha incorreta.";
         }
     } else {
-        echo "Usuário não encontrado.";
+        $_SESSION['error'] = 'Usuário ou senha incorretos.';
+        header('Location: ../public/login.php');
     }
 
 }
