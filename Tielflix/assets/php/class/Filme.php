@@ -68,5 +68,10 @@ class Filme
         require '../assets/php/viewFilmeModal.php';
     }
 
+    public function edit()
+    {
+        extract($this->toArray());
+        require '../assets/php/editFilmeModal.php';
+    }
 }
 ?>

@@ -1,5 +1,7 @@
 <?php
 $modalId = 'movieModal-' . str_replace(' ', '-', strtolower($title));
+$username = $_GET['user'] ?? '';
+$is_owner = $username == $_SESSION['user']->username;
 ?>
 
 <div class="modal fade" id="<?php echo $modalId; ?>" tabindex="-1" aria-labelledby="<?php echo $modalId; ?>Label" aria-hidden="true">
@@ -64,6 +66,10 @@ $modalId = 'movieModal-' . str_replace(' ', '-', strtolower($title));
                 </div>
             </div>
             <div class="modal-footer">
+                <?php 
+                if ($is_owner): ?>
+                    
+                <?php endif; ?>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
         </div>
