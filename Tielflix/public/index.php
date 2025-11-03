@@ -15,24 +15,67 @@ if (!isset($_SESSION['user'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descrição do site">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <title>Título</title>
+    <title>Homepage</title>
 </head>
 <body>
-    <a href="../processos/logout_processo.php">Logout</a>
-    <a href="user.php?user=<?php echo urlencode($_SESSION['user']->username); ?>">Perfil</a>
-    <h1>Homepage</h1>
-    <?php
-    echo "<p>Bem vindo, " . htmlspecialchars($_SESSION['user']->username) . "!</p>";
-    ?>
-    <?php
-    foreach ($_SESSION['users'] as $username => $user) {
-        if ($username == $_SESSION['user']->username) {
-            continue;
-        }
-        echo '<p><a href="user.php?user=' . urlencode($username) . '">' . htmlspecialchars($username) . '</a></p>';
-    }
-    ?>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.php">TielFlix</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.php">
+                <i class="bi bi-house-door-fill"></i> Home
+            </a>
+        </li>
+        <li class="nav-item"> <a class="nav-link" href="user.php?user=<?php echo urlencode($_SESSION['user']->username); ?>"> <i class="bi bi-person-circle"></i> Perfil
+            </a>
+        </li>
+    </ul>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../processos/logout_processo.php">
+                            <i class="bi bi-box-arrow-right"></i> Sair
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+
+        <h1 class="display-4 mb-4">Homepage</h1>
+
+        <p class="lead">Bem-vindo(a), <strong><?php echo htmlspecialchars($_SESSION['user']->username); ?></strong>!</p>
+        
+        <hr class="my-4">
+
+        <h2 class="h4 mb-3">Outros Usuários:</h2>
+        
+        <div class="list-group">
+            <?php
+            if (isset($_SESSION['users']) && is_array($_SESSION['users'])) {
+                foreach ($_SESSION['users'] as $username => $user) {
+                    if ($username == $_SESSION['user']->username) {
+                        continue;
+                    }
+                    echo '<a href="user.php?user=' . urlencode($username) . '" class="list-group-item list-group-item-action">';
+                    echo htmlspecialchars($username);
+                    echo '</a>';
+                }
+            } else {
+                 echo '<p class="text-muted">Nenhum outro usuário encontrado.</p>';
+            }
+            ?>
+        </div>
+
+    </div> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
 </body>
 </html>

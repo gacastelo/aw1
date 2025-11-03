@@ -16,7 +16,7 @@ $modalId = 'movieModal-' . str_replace(' ', '-', strtolower($title));
                         
                         <p class="h4">
                             Avaliação: 
-                            <span class="badge bg-warning text-dark">
+                            <span class="badge text-dark">
                             <?php 
                     for ($i = 0; $i < $rating; $i++) {
                         echo "⭐";
