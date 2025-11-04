@@ -23,6 +23,24 @@ class User
         $this->filmes[] = $filme;
     }
 
+    public function delFilme($filme)
+    {
+        $index = array_search($filme, $this->filmes);
+        if ($index !== false) {
+            unset($this->filmes[$index]);
+        }
+    }
+
+    public function getFilmebyTitle($title)
+    {
+        foreach ($this->filmes as $filme) {
+            if ($filme->titulo == $title) {
+                return $filme;
+            }
+        }
+        return null;
+    }
+
     public function verifyPassword($password)
     {   
         return password_verify($password, $this->password);
@@ -37,5 +55,7 @@ class User
     {
         $this->$atributo = $valor;
     }
+
+    
 }
 ?>

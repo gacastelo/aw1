@@ -9,15 +9,16 @@ if (!isset($_SESSION['user'])) {
     exit();
 }
 $username = $_GET['user'] ?? '';
-$is_owner = false;
 if ($username == $_SESSION['user']->username) {
     $is_owner = true;
+}
+else{
+    $is_owner = false;
 }
 $user = $_SESSION['users'][$username] ?? null;
 
 
 require_once '../assets/php/addFilmeModal.php';
-require_once '../assets/php/editarPerfilModal.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

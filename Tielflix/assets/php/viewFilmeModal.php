@@ -68,10 +68,17 @@ $is_owner = $username == $_SESSION['user']->username;
             <div class="modal-footer">
                 <?php 
                 if ($is_owner): ?>
-                    
+                    <form action="../processos/delFilme_processo.php" method="POST" onsubmit="return confirm('Tem certeza que deseja excluir?')=">
+                        <input type="hidden" name="filme_title" value="<?php echo $title; ?>">
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
                 <?php endif; ?>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                 </div>
         </div>
     </div>
 </div>
+
+<script>
+
+</script>
