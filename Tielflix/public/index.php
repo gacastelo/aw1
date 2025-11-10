@@ -1,11 +1,16 @@
 <?php
-require_once '../assets/php/class/User.php';
+require_once '../src/User.php';
 if (!isset($_SESSION)) {
     session_start();
 }
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit();
+}
+$_SESSION['initialized'] = false;
+if (!isset($_SESSION['initialized']) || $_SESSION['initialized'] !== true) {
+    require_once './processos/placeholder.php';
+    $_SESSION['initialized'] = true;
 }
 ?>
 <!DOCTYPE html>
@@ -38,7 +43,7 @@ if (!isset($_SESSION['user'])) {
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../processos/logout_processo.php">
+                        <a class="nav-link" href="./processos/logout_processo.php">
                             <i class="bi bi-box-arrow-right"></i> Sair
                         </a>
                     </li>

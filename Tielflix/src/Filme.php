@@ -65,7 +65,7 @@ class Filme
     public function view()
     {
         extract($this->toArray());
-        require '../assets/php/viewFilmeModal.php';
+        require './php/viewFilmeModal.php';
     }
 
 }

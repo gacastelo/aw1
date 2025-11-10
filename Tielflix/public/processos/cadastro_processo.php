@@ -1,5 +1,5 @@
 <?php
-require_once '../assets/php/class/User.php';
+require_once '../../src/User.php';
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -10,10 +10,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($username) && !empty($email) && !empty($password) && filter_var($email, FILTER_VALIDATE_EMAIL) && strlen($password)>= 8) {
         $_SESSION['users'][$username] = new User($username, $email, $password);
-        header('Location: ../public/login.php');
+        header('Location: ../login.php');
         exit();
     }
     $_SESSION['error'] = 'Por favor, preencha todos os campos corretamente.';
-    header('Location: ../public/cadastro.php');
+    header('Location: ../cadastro.php');
 }
 ?>

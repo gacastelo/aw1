@@ -8,7 +8,7 @@
             </div>
             
             <div class="modal-body">
-                <form id="formAddFilme" method="post" action="../processos\addFilme.php">
+                <form id="formAddFilme" method="post" action="../processos/addFilme.php">
                     
                     <h6 class="text-primary mb-3">1. Dados Essenciais do Filme</h6>
                     <div class="mb-3">

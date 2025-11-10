@@ -1,6 +1,6 @@
 <?php
-require_once '../assets/php/class/User.php';
-require_once '../assets/php/class/Filme.php';
+require_once '../src/User.php';
+require_once '../src/Filme.php';
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -16,8 +16,8 @@ if ($username == $_SESSION['user']->username) {
 $user = $_SESSION['users'][$username] ?? null;
 
 
-require_once '../assets/php/addFilmeModal.php';
-require_once '../assets/php/editarPerfilModal.php';
+require_once './php/addFilmeModal.php';
+require_once './php/editarPerfilModal.php';
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -50,7 +50,7 @@ require_once '../assets/php/editarPerfilModal.php';
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../processos/logout_processo.php">
+                        <a class="nav-link" href="./processos/logout_processo.php">
                             <i class="bi bi-box-arrow-right"></i> Sair
                         </a>
                     </li>
@@ -63,11 +63,11 @@ require_once '../assets/php/editarPerfilModal.php';
         <main>
         <?php
         if (isset($user)) {
-            require_once '../assets/php/user_profile.php'; 
+            require_once './php/user_profile.php'; 
         }
         else {
             echo '<div class="alert alert-danger" role="alert">';
-            require_once '../assets/php/404.php';   
+            require_once './php/404.php';   
             echo '</div>';
             exit();
         }

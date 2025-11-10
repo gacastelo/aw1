@@ -20,7 +20,7 @@
         
         <h2 class="card-title text-center mb-4">Criar Nova Conta</h2>
 
-        <form action="../processos/cadastro_processo.php" method="post">
+        <form action="./processos/cadastro_processo.php" method="post">
             <?php 
             session_start();
             if (isset($_SESSION['error'])) {
@@ -45,7 +45,7 @@
                 <label for="password" class="form-label">Senha:</label>
                 <div class="input-group">
                     <input type="password" id="password" name="password" class="form-control" required
-                           placeholder="Crie uma senha segura">
+                           placeholder="*Minímo de 8 caracteres">
                     <span id="eye" style="font-size: 15pt;">👁️‍🗨️</span>
                 </div>
             </div>

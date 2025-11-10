@@ -1,6 +1,6 @@
 <?php 
-require_once '../assets/php/class/User.php';
-require_once '../assets/php/class/Filme.php';
+require_once '../../src/User.php';
+require_once '../../src/Filme.php';
 
 if (!isset($_SESSION)) {
     session_start();
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_SESSION['user']->username;
     $_SESSION['users'][$username]->addFilme($novo_filme);
 
-    header('Location: ../public/user.php?user=' . urlencode($username));
+    header('Location: ../user.php?user=' . urlencode($username));
     exit();
 }
 ?>
