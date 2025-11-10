@@ -26,7 +26,7 @@ if (!isset($_SESSION)) {
             ]
         ],
         [
-            'username' => 'Vick',
+            'username' => 'Victória',
             'email' => 'vic@gmail.com',
             'senha' => 'abcdefgh',
             'filme' => [
@@ -61,7 +61,6 @@ if (!isset($_SESSION)) {
         ]
     ];
 
-    // Percorre os usuários e adiciona na sessão
     foreach ($usuarios as $u) {
         $username = $u['username'];
         $email = $u['email'];
