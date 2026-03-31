@@ -6,6 +6,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
 }
 
 main {
@@ -108,4 +109,14 @@ h1{
     font-size: 4vh;
     font-weight: bold;
     text-align: center;
+}
+
+#connections {
+    text-decoration: none;
+    color: black;
+    font-size: 2vh;
+}
+
+#logout {
+    color: red;
 }

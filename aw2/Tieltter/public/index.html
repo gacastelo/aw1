@@ -23,7 +23,7 @@
                     <input type="text" placeholder="E-mail ou nome de usuário">
                     <input type="password" placeholder="Senha">
                     <div id="login-button-container">
-                        <button type="submit">Entrar</button>
+                        <button type="submit" id="join">Entrar</button>
                         <button type="reset">Limpar</button>
                     </div>
                 </form>
@@ -34,5 +34,12 @@
         <p>© 2026 Tieltter - Nenhum direito reservado</p>
     </footer>
 </body>
-
+<script>
+    const buttonJoin = document.getElementById('join');
+    buttonJoin.addEventListener('click', function(event) {
+        event.preventDefault();
+        window.location.href = './portal.html';
+    });
+    // COLOQUEI ISSO SÓ PRA FACILITAR O TESTE E NAVEGAÇÃO
+</script>
 </html>
