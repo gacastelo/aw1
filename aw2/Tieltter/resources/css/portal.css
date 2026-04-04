@@ -99,7 +99,7 @@ nav div{
     margin: 2vh;
 }
 
-nav div:nth-child(2){
+nav div:nth-child(3){
     justify-content: flex-end;
 }
 
@@ -119,4 +119,10 @@ footer p {
 
 #logout {
     color: red;
+}
+
+#eu {
+    color: #333;
+    font-size: 1.8vh;
+    font-weight: bold;
 }
