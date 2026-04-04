@@ -99,6 +99,10 @@ nav div{
     margin: 2vh;
 }
 
+nav div:nth-child(2){
+    justify-content: center;
+}
+
 nav div:nth-child(3){
     justify-content: flex-end;
 }
