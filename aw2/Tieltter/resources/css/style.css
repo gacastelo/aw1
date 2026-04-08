@@ -109,3 +109,23 @@ footer p {
 #logout {
     color: red;
 }
+.center{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.center p{
+    margin: 0.5rem;
+}
+
+.link{
+    text-decoration: underline;
+    color: #000;
+}
+.link:hover{
+    text-decoration: underline;
+    color: #202020;
+}
