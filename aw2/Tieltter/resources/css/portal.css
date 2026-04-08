@@ -99,11 +99,11 @@ nav div{
     margin: 2vh;
 }
 
-nav div:nth-child(2){
+#eu{
     justify-content: center;
 }
 
-nav div:nth-child(3){
+#search-bar-container {
     justify-content: flex-end;
 }
 

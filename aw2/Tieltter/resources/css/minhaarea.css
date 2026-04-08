@@ -47,10 +47,6 @@ nav div{
     margin: 2vh;
 }
 
-nav div:nth-child(2){
-    justify-content: flex-end;
-}
-
 footer {
     background-color: #f2f2f2;
     padding: 10px;
@@ -60,6 +56,7 @@ footer {
     display: flex;
     justify-content: center;
 }
+
 footer p {
     margin: 0;
     font-size: 2vh;
